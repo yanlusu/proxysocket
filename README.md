@@ -37,3 +37,27 @@ License
 -------
 proxysocket is released under the terms of the MIT License (MIT), see LICENSE.txt.
 
+
+Build with CMake
+----------------
+```bash
+cmake -S . -B build-cmake
+cmake --build build-cmake
+```
+
+Install:
+```bash
+cmake --install build-cmake --prefix /usr/local
+```
+
+Optional build switches:
+- `-DBUILD_SHARED_LIBS=ON|OFF`
+- `-DPROXYSOCKET_BUILD_TOOLS=ON|OFF`
+
+Use from another CMake project
+------------------------------
+After install, you can consume with:
+```cmake
+find_package(proxysocket CONFIG REQUIRED)
+target_link_libraries(your_target PRIVATE proxysocket::proxysocket)
+```

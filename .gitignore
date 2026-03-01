@@ -1,0 +1,50 @@
+# CMake out-of-source build directories
+/build-cmake*/
+/cmake-build-*/
+
+# CMake files generated in legacy /build directory
+/build/.ninja_deps
+/build/.ninja_log
+/build/CMakeCache.txt
+/build/CMakeFiles/
+/build/Debug/
+/build/Release/
+/build/RelWithDebInfo/
+/build/build.ninja
+/build/build-*.ninja
+/build/cmake_install.cmake
+/build/compile_commands.json
+/build/install_manifest.txt
+
+# In-source CMake artifacts (if generated accidentally)
+/CMakeCache.txt
+/CMakeFiles/
+/cmake_install.cmake
+/install_manifest.txt
+/compile_commands.json
+
+# Build outputs
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.lib
+*.exe
+
+# Generated binaries in repository root
+/ipify
+/ipifyd
+/ipifyrd
+
+# Documentation and packaging artifacts
+/doc/html/
+/doc/man/
+/doc/doxygen_sqlite3.db
+/version
+/proxysocket-*.tar.xz
+
+# OS/editor noise
+.DS_Store
