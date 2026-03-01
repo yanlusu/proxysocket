@@ -1,5 +1,7 @@
 proxysocket
 ===========
+中文文档： [README_CN.md](./README_CN.md)
+
 Portable C library for proxy client support, designed to be used as a drop-in replacement for connect().
 
 Description
@@ -41,18 +43,27 @@ proxysocket is released under the terms of the MIT License (MIT), see LICENSE.tx
 Build with CMake
 ----------------
 ```bash
-cmake -S . -B build-cmake
-cmake --build build-cmake
+cmake -S . -B build
+cmake --build build
 ```
 
 Install:
 ```bash
-cmake --install build-cmake --prefix /usr/local
+cmake --install build --prefix /usr/local
 ```
 
 Optional build switches:
 - `-DBUILD_SHARED_LIBS=ON|OFF`
 - `-DPROXYSOCKET_BUILD_TOOLS=ON|OFF`
+- `-DPROXYSOCKET_DEBUG_POSTFIX=d`
+- `-DPROXYSOCKET_RELWITHDEBINFO_POSTFIX=rd`
+
+Build type examples:
+```bash
+cmake -S . -B build-debug -DCMAKE_BUILD_TYPE=Debug -DBUILD_SHARED_LIBS=ON
+cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON
+cmake -S . -B build-rd -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_SHARED_LIBS=ON
+```
 
 Use from another CMake project
 ------------------------------
@@ -60,4 +71,9 @@ After install, you can consume with:
 ```cmake
 find_package(proxysocket CONFIG REQUIRED)
 target_link_libraries(your_target PRIVATE proxysocket::proxysocket)
+```
+
+When proxysocket is installed to a non-system prefix, set:
+```bash
+cmake -S . -B build-consumer -DCMAKE_PREFIX_PATH=/path/to/proxysocket/install
 ```
